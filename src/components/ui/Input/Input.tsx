@@ -3,8 +3,13 @@ import { IInput } from './input.types';
 
 import styles from './styles.module.scss';
 
-const Input: React.FC<IInput> = ({ ...props }) => {
-  return <input {...props} type="text" className={`${styles.input} ${props.className}`} />;
+const Input: React.FC<IInput> = ({ label, ...props }) => {
+  return (
+    <div className={styles.container}>
+      {label && <label>{label}</label>}
+      <input {...props} type='text' className={`${styles.container_input} ${props.className}`} />
+    </div>
+  );
 };
 
 export default Input;
