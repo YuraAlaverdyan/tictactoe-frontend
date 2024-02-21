@@ -32,9 +32,9 @@
     overflow: hidden;
     color: #fff;
     font-weight: 400;
-    z-index: 1;
     transition: 0.5s;
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(20px);
+    z-index: 1;
 
     &::before {
       content: "";
@@ -59,6 +59,9 @@
   }
 
   &::before {
+    background: #ff1f71;
+    box-shadow: 0 0 5px #ff1f71, 0 0 15px #ff1f71, 0 0 30px #ff1f71,
+    0 0 60px #ff1f71;
     content: "";
     position: absolute;
     left: 50%;
@@ -66,25 +69,41 @@
     bottom: -5px;
     width: 30px;
     height: 10px;
-    background: #f00;
     border-radius: 10px;
     transition: 0.5s;
-    transition-delay: 0.5s;
   }
 
-  &:hover p::after {
+  &::after {
+    background: #ff1f71;
+    box-shadow: 0 0 5px #ff1f71, 0 0 15px #ff1f71, 0 0 30px #ff1f71,
+    0 0 60px #ff1f71;
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+    top: -5px;
+    width: 30px;
+    height: 10px;
+    border-radius: 10px;
+    transition: 0.5s;
+  }
+
+  &:hover::after {
     top: 0;
     height: 50%;
     width: 80%;
     border-radius: 30px;
   }
 
-  &:hover::before
-  {
+  &:hover::before {
     bottom: 0;
     height: 50%;
     width: 80%;
     border-radius: 30px;
+  }
+
+  &:hover p::before {
+    transform: skewX(45deg) translate(200px);
   }
 }
 
