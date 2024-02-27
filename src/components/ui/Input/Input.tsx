@@ -7,7 +7,7 @@ const Input: React.FC<IInput> = ({ label, ...props }) => {
   return (
     <div className={styles.container}>
       {label && <label>{label}</label>}
-      <input {...props} type='text' className={`${styles.container_input} ${props.className}`} />
+      <input {...props} className={`${styles.container_input} ${props.className}`} />
     </div>
   );
 };
