@@ -1,7 +1,20 @@
 import React from 'react';
-import { Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
-import { Home } from 'pages';
+
+import { createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
+import { Game, Home, Signup } from 'pages';
+import ProtectedLayout from 'layouts/ProtectedLayout';
+import PublicLayout from 'layouts/PublicLayout';
 
 export const router = createBrowserRouter(
-  createRoutesFromElements(<Route path='/' element={<Home />} />)
+  createRoutesFromElements(
+    <React.Fragment>
+      <Route element={<ProtectedLayout />}>
+        <Route path="/game" element={<Game />} />
+      </Route>
+      <Route element={<PublicLayout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/signup" element={<Signup />} />
+      </Route>
+    </React.Fragment>,
+  ),
 );
